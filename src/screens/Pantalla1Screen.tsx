@@ -1,6 +1,8 @@
-import React, { useState }  from 'react'
-import { Button, Text, View,StyleSheet,TextInput, TouchableOpacity  } from 'react-native'
+import React  from 'react'
+import { Button,  View, Image  } from 'react-native'
 import { NativeStackScreenProps } from 'react-native-screens/lib/typescript/native-stack/types'
+import { TitleComponent } from '../components/TitleComponent'
+import { styles } from '../theme/Apptheme'
 
 
 
@@ -9,41 +11,23 @@ interface Props extends NativeStackScreenProps<any,any> {}
 export const Pantalla1Screen = ({navigation}:Props) => {  
 
     return (
-    <View style={{
-        backgroundColor:"rgb(62, 212, 222)",
-        flex:1
-    }}>
-        <Text style={{
-            color:"gold",
-            textAlign:"center",
-            fontSize:40,
-            marginBottom:40
-        }}>Inicio de sesion</Text>
+    <View style={styles.background1}>
+
+        <TitleComponent title={"Bienvenido"} />
         
 
-        <TextInput
-            style={styles.input}
-            
-            placeholder="Nombre de Usuario"
-          />
-        
-        <TextInput
-            style={styles.input}
-            
-            placeholder="Contraseña"
-            secureTextEntry
-          />
+        <Image 
+        source={{ uri: 'https://static.vecteezy.com/system/resources/previews/002/867/880/non_2x/official-symbol-olympic-games-tokyo-2020-japan-and-torch-fire-abstract-design-illustration-logo-sign-icon-free-vector.jpg' }} 
+        style={styles.image} 
+      />
         
         <Button 
         
-        title='Iniciar sesion'
+        title='Acceder'
         onPress={()=>navigation.navigate("Pantalla2")}
         />
 
-        <TouchableOpacity style={styles.Button} 
-        onPress={()=>navigation.navigate("Pantalla2")}>
-        <Text style={{textAlign:"center"}}>¿No tienes una cuenta? Registrate ahora</Text>
-      </TouchableOpacity>
+        
 
         
 
@@ -52,22 +36,6 @@ export const Pantalla1Screen = ({navigation}:Props) => {
 }
 
 
-const styles = StyleSheet.create({
-  
-  input: {
-    backgroundColor:"rgb( 174, 233, 237 )",
-    height: 40,
-    borderColor: 'gray',
-    borderBottomWidth: 1,
-    marginBottom: 20,
-    paddingHorizontal: 10,
-  },
-  
-  Button:{
-    
-    marginTop: 30,
-    
-  }
-});
+
 
 
